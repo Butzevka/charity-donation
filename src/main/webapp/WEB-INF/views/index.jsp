@@ -19,8 +19,7 @@
 <section class="stats">
     <div class="container container--85">
         <div class="stats--item">
-            <em>13</em>
-
+            <em><c:out value="${quantityDonated}"/></em>
             <h3>Oddanych worków</h3>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius est beatae, quod accusamus illum
                 tempora!</p>
@@ -86,6 +85,11 @@
 
         <ul class="help--slides-items">
             <li>
+                <c:forEach var="institution" items="${institutions}" varStatus="status">
+                    <div class="col">
+                        <div class="title"><c:out value="${institution.name}" /></div>
+                    </div>
+                </c:forEach>
                 <div class="col">
                     <div class="title">Fundacja "Dbam o Zdrowie"</div>
                     <div class="subtitle">Cel i misja: Pomoc dzieciom z ubogich rodzin.</div>
