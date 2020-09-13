@@ -8,4 +8,6 @@ public interface DonationService {
 
     Long count();
     List<Donation> getAll();
+
+
 }

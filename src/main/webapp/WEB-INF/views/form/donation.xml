@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<flow xmlns="http://www.springframework.org/schema/webflow"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.springframework.org/schema/webflow 
+      http://www.springframework.org/schema/webflow/spring-webflow-2.0.xsd">
+    <var name="donation" class="pl.coderslab.charity.model.Donation"/>
+
+
+    <view-state id="form-1-category" model="donation">
+        <transition on="next" to="form-2-quantity"/>
+<!--        <transition on="previous" to="index"/>-->
+    </view-state>
+    <view-state id="form-2-quantity" model="donation">
+        <transition on="next" to="form-3-institution"/>
+        <transition on="previous" to="form-1-category"/>
+    </view-state>
+    <view-state id="form-3-institution" model="donation">
+        <transition on="next" to="form-4-pickup"/>
+        <transition on="previous" to="form-2-quantity"/>
+    </view-state>
+    <view-state id="form-4-pickup" model="donation">
+        <transition on="next" to="form-5-confirm"/>
+        <transition on="previous" to="form-3-institution"/>
+    </view-state>
+    <view-state id="form-5-confirm" model="donation">
+        <transition on="next" to="form-6-success"/>
+        <transition on="previous" to="form-4-pickup"/>
+    </view-state>
+    <end-state id="form-6-success">
+        <output name="donationId" value="donation.id"/>
+    </end-state>
+</flow>

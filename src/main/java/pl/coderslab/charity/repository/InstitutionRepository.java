@@ -6,5 +6,4 @@ import pl.coderslab.charity.model.Institution;
 import java.util.List;
 
 public interface InstitutionRepository extends JpaRepository<Institution, Long> {
-    List<Institution> getAll();
 }

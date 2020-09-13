@@ -1,12 +1,41 @@
-<img alt="Logo" src="http://coderslab.pl/svg/logo-coderslab.svg" width="400">
+# Charity Donation
+> Donate your unwanted items to a charity of your choice, a Coders Lab Java Developer course portfolio lab project (Spring Boot, Spring Data JPA, Spring Security)
 
+## Table of contents
+* [General info](#general-info)
+* [Technologies](#technologies)
+* [Setup](#setup)
+* [Features](#features)
+* [Status](#status)
+* [Inspiration](#inspiration)
 
-Przed przystąpieniem do pracy  przeczytaj poniższe wskazówki.
-## Jak zacząć?
+## General info
+Donate your unwanted items to a charity of your choice, a Coders Lab Java Developer course portfolio lab project (Spring Boot, Spring Data JPA, Spring Security)
 
-1. Zaimportuj projekt jako projekt `Maven`, wg poniższych wskazówek:
+## Technologies
+* Spring Boot
+* Spring Data JPA
+* Spring Security
+* Java 11
+* MySQL
+* Lombok library
 
-	* W `IntelliJ` wybieramy: `File –> New –> Project from Existing Sources...`
-	* Wskazujemy lokalizację katalogu ze sklonowanym projektem i zatwierdzamy.
-	* Następnie w nowym oknie wybieramy: `Import project from external model` i wskazujemy `Maven`
-	* Wybieramy kolejno opcje: `Next –> Next –> Next –> Finish`
+## Setup
+Describe how to install / setup your local environment / add link to demo version.
+
+## Features
+List of features ready and TODOs for future development
+* Landing page
+* Donation form
+
+To-do list:
+* Register/Login forms
+* admin role utilities (managing user details, charities, donations and categories)
+* password validation
+* alternative language versions
+
+## Status
+work in progress
+
+## Inspiration
+Based on Coders Lab Portfolio Lab project idea
