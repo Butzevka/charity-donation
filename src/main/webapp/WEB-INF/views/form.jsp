@@ -43,25 +43,25 @@
             <div data-step="1" class="active">
                 <h3>Zaznacz co chcesz oddać:</h3>
 
+
+<%--                <div class="form-group form-group--checkbox">--%>
+<%--                    <form:checkboxes path="categories" items="${categories}"/>--%>
+<%--                </div>--%>
+
+
                 <c:forEach var="category" items="${categories}">
-                <div class="form-group form-group--checkbox">
-                    <label>
-                        <form:checkbox path="categories"
-                                name="categories"
-                                value="${category}"
-                        />
-                        <span class="checkbox"></span>
-                        <span class="description"
-                        ><c:out value="${category.name}"/></span
-                        >
-                    </label>
-                </div>
+                    <div class="form-group form-group--checkbox">
+                        <label>
+                            <form:checkbox path="categories" name="categories" value="${category}"/>
+                            <span class="checkbox"></span>
+                            <span class="description"><c:out value="${category.name}"/></span>
+                        </label>
+                    </div>
                 </c:forEach>
 
 
-
                 <div class="form-group form-group--buttons">
-                    <form:button type="button" class="btn next-step">Dalej</form:button>
+                    <form:button class="btn next-step">Dalej</form:button>
                 </div>
             </div>
 
@@ -72,39 +72,36 @@
                 <div class="form-group form-group--inline">
                     <label>
                         Liczba 60l worków:
-                        <form:input path="quantity" type="number" name="bags" step="1" min="1" />
+                        <form:input path="quantity" type="number" name="bags" step="1" min="1"/>
                     </label>
                 </div>
 
                 <div class="form-group form-group--buttons">
-                    <form:button type="button" class="btn prev-step">Wstecz</form:button>
-                    <form:button type="button" class="btn next-step">Dalej</form:button>
+                    <form:button class="btn prev-step">Wstecz</form:button>
+                    <form:button class="btn next-step">Dalej</form:button>
                 </div>
             </div>
-
 
 
             <!-- STEP 3 -->
             <div data-step="3">
                 <h3>Wybierz organizację, której chcesz pomóc:</h3>
-<c:forEach items="${institutions}" var="institution">
-                <div class="form-group form-group--checkbox">
-                    <label>
-                        <form:input path="institution" type="radio" name="organization" value="${institution.id}" />
-                        <span class="checkbox radio"></span>
-                        <span class="description">
-                  <div class="title"><c:out value="${institution.name}"/> </div>
-                  <div class="subtitle">
-                    <c:out value="${institution.description}"/>
-                  </div>
-                </span>
-                    </label>
-                </div>
-</c:forEach>
+                <c:forEach items="${institutions}" var="institution">
+                    <div class="form-group form-group--checkbox">
+                        <label>
+                            <form:radiobutton path="institution" name="organization" value="${institution.id}"/>
+                            <span class="checkbox radio"></span>
+                            <span class="description">
+                                <div class="title"><c:out value="${institution.name}"/></div>
+                                <div class="subtitle"><c:out value="${institution.description}"/></div>
+                            </span>
+                        </label>
+                    </div>
+                </c:forEach>
 
                 <div class="form-group form-group--buttons">
-                    <form:button type="button" class="btn prev-step">Wstecz</form:button>
-                    <form:button type="button" class="btn next-step">Dalej</form:button>
+                    <form:button class="btn prev-step">Wstecz</form:button>
+                    <form:button class="btn next-step">Dalej</form:button>
                 </div>
             </div>
 
@@ -116,34 +113,34 @@
                     <div class="form-section--column">
                         <h4>Adres odbioru</h4>
                         <div class="form-group form-group--inline">
-                            <label> Ulica <form:input path="street" type="text" name="address" /> </label>
+                            <label> Ulica <form:input path="street" type="text" name="address"/> </label>
                         </div>
 
                         <div class="form-group form-group--inline">
-                            <label> Miasto <form:input path="city" type="text" name="city" /> </label>
+                            <label> Miasto <form:input path="city" type="text" name="city"/> </label>
                         </div>
 
                         <div class="form-group form-group--inline">
                             <label>
-                                Kod pocztowy <form:input path="zipCode" type="text" name="postcode" />
+                                Kod pocztowy <form:input path="zipCode" type="text" name="postcode"/>
                             </label>
                         </div>
 
-<%--                        <div class="form-group form-group--inline">--%>
-<%--                            <label>--%>
-<%--                                Numer telefonu <input type="phone" name="phone" />--%>
-<%--                            </label>--%>
-<%--                        </div>--%>
+                            <%--                        <div class="form-group form-group--inline">--%>
+                            <%--                            <label>--%>
+                            <%--                                Numer telefonu <input type="phone" name="phone" />--%>
+                            <%--                            </label>--%>
+                            <%--                        </div>--%>
                     </div>
 
                     <div class="form-section--column">
                         <h4>Termin odbioru</h4>
                         <div class="form-group form-group--inline">
-                            <label> Data <form:input path="pickUpDate" type="date" name="data" /> </label>
+                            <label> Data <form:input path="pickUpDate" type="date" name="data"/> </label>
                         </div>
 
                         <div class="form-group form-group--inline">
-                            <label> Godzina <form:input path="pickUpTime" type="time" name="time" /> </label>
+                            <label> Godzina <form:input path="pickUpTime" type="time" name="time"/> </label>
                         </div>
 
                         <div class="form-group form-group--inline">
@@ -155,8 +152,8 @@
                     </div>
                 </div>
                 <div class="form-group form-group--buttons">
-                    <form:button type="button" class="btn prev-step">Wstecz</form:button>
-                    <form:button type="button" class="btn next-step">Dalej</form:button>
+                    <form:button class="btn prev-step">Wstecz</form:button>
+                    <form:button class="btn next-step">Dalej</form:button>
                 </div>
             </div>
 
@@ -186,7 +183,7 @@
                         <div class="form-section--column">
                             <h4>Adres odbioru:</h4>
                             <ul>
-                                <li><c:out value="${donation.street}"/></li>
+                                <li><c:out value="${}"/></li>
                                 <li><c:out value="${donation.city}"/></li>
                                 <li><c:out value="${donation.zipCode}"/></li>
                             </ul>
