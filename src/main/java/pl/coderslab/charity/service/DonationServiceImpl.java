@@ -23,6 +23,11 @@ public class DonationServiceImpl implements DonationService{
         return donationRepository.findAll();
     }
 
+    @Override
+    public void saveDonation(Donation donation) {
+        donationRepository.save(donation);
+    }
+
     public int quantityDonated() {
         return getAll().stream().mapToInt(d -> d.getQuantity()).sum();
     }

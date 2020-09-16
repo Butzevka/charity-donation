@@ -23,7 +23,7 @@ public class User {
     private String email;
     @Length(min = 4)
     private String username;
-    @Pattern(regexp = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{4,32}$")
+    @Length(min = 4)
     private String password;
     @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"),
