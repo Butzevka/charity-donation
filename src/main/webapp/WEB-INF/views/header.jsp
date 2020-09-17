@@ -6,6 +6,7 @@
     <nav class="container container--70">
         <ul class="nav--actions">
            <sec:authorize access="isAuthenticated()">
+           <sec:authentication var="principal" property="principal" />
                <li><a href="<c:url value="/user/${principal.user.id}"/>" class="btn btn--small btn--without-border">Witaj <sec:authentication property="principal.username"/></a></li>
                 <li><a href="<c:url value="/logout"/>" class="btn btn--small btn--highlighted">Wyloguj się</a></li>
             </sec:authorize>

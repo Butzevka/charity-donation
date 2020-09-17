@@ -38,7 +38,7 @@
     <div class="form--steps-container">
         <div class="form--steps-counter">Krok <span>1</span>/4</div>
 
-        <form:form action="confirmation" method="post" modelAttribute="donation">
+        <form:form name="donation" method="post" modelAttribute="donation">
             <!-- STEP 1: class .active is switching steps -->
             <div data-step="1" class="active">
                 <h3>Zaznacz co chcesz oddać:</h3>
@@ -52,7 +52,7 @@
                 <c:forEach var="category" items="${categories}">
                     <div class="form-group form-group--checkbox">
                         <label>
-                            <input type="checkbox" name="categories" value="${category}"/>
+                            <input type="checkbox" name="categories" value="${category.id}"/>
                             <span class="checkbox"></span>
                             <span class="description"><c:out value="${category.name}"/></span>
                         </label>
@@ -72,7 +72,7 @@
                 <div class="form-group form-group--inline">
                     <label>
                         Liczba 60l worków:
-                        <form:input path="quantity" type="number" name="bags" step="1" min="1"/>
+                        <form:input path="quantity" type="number" step="1" min="1"/>
                     </label>
                 </div>
 
@@ -89,10 +89,10 @@
                 <c:forEach items="${institutions}" var="institution">
                     <div class="form-group form-group--checkbox">
                         <label>
-                            <form:radiobutton path="institution" name="organization" value="${institution.id}"/>
+                            <input type="radio" name="institution" id="institution" value="${institution.id}"/>
                             <span class="checkbox radio"></span>
                             <span class="description">
-                                <div class="title"><c:out value="${institution.name}"/></div>
+                                <div class="title" id="institution-name"><c:out value="${institution.name}"/></div>
                                 <div class="subtitle"><c:out value="${institution.description}"/></div>
                             </span>
                         </label>
@@ -113,40 +113,35 @@
                     <div class="form-section--column">
                         <h4>Adres odbioru</h4>
                         <div class="form-group form-group--inline">
-                            <label> Ulica <form:input path="street" type="text" name="address"/> </label>
+                            <label> Ulica <form:input path="street" type="text" name="street"/></label>
                         </div>
 
                         <div class="form-group form-group--inline">
-                            <label> Miasto <form:input path="city" type="text" name="city"/> </label>
+                            <label> Miasto <form:input path="city" type="text" name="city"/></label>
                         </div>
 
                         <div class="form-group form-group--inline">
                             <label>
-                                Kod pocztowy <form:input path="zipCode" type="text" name="postcode"/>
+                                Kod pocztowy <form:input path="zipCode" type="text" name="zipCode" maxlength="6"/>
                             </label>
                         </div>
 
-                            <%--                        <div class="form-group form-group--inline">--%>
-                            <%--                            <label>--%>
-                            <%--                                Numer telefonu <input type="phone" name="phone" />--%>
-                            <%--                            </label>--%>
-                            <%--                        </div>--%>
                     </div>
 
                     <div class="form-section--column">
                         <h4>Termin odbioru</h4>
                         <div class="form-group form-group--inline">
-                            <label> Data <form:input path="pickUpDate" type="date" name="data"/> </label>
+                            <label> Data <form:input path="pickUpDate" id="pickUpDate" type="date"/> </label>
                         </div>
 
                         <div class="form-group form-group--inline">
-                            <label> Godzina <form:input path="pickUpTime" type="time" name="time"/> </label>
+                            <label> Godzina <form:input path="pickUpTime" id="pickUpTime" type="time"/> </label>
                         </div>
 
                         <div class="form-group form-group--inline">
                             <label>
                                 Uwagi dla kuriera
-                                <form:textarea path="pickUpComment" name="more_info" rows="5"></form:textarea>
+                                <form:textarea path="pickUpComment" id="pickUpComment" rows="5"/>
                             </label>
                         </div>
                     </div>
@@ -167,14 +162,12 @@
                         <ul>
                             <li>
                                 <span class="icon icon-bag"></span>
-                                <span class="summary--text"
-                                ><c:out value="${donation.quantity}"/> worki niepotrzebnych Ci przedmiotów</span>
+                                <span class="summary--text" id="summary-quantity"></span>
                             </li>
 
                             <li>
                                 <span class="icon icon-hand"></span>
-                                <span class="summary--text"
-                                >Dla organizacji <c:out value="${donation.institution.name}"/></span>
+                                <span class="summary--text" id="summary-institution"></span>
                             </li>
                         </ul>
                     </div>
@@ -183,18 +176,18 @@
                         <div class="form-section--column">
                             <h4>Adres odbioru:</h4>
                             <ul>
-                                <li><c:out value="${}"/></li>
-                                <li><c:out value="${donation.city}"/></li>
-                                <li><c:out value="${donation.zipCode}"/></li>
+                                <li id="summary-address"></li>
+                                <li id="summary-city"></li>
+                                <li id="summary-zipcode"></li>
                             </ul>
                         </div>
 
                         <div class="form-section--column">
                             <h4>Termin odbioru:</h4>
                             <ul>
-                                <li><c:out value="${donation.pickUpDate}"/></li>
-                                <li><c:out value="${donation.pickUpTime}"/></li>
-                                <li><c:out value="${donation.pickUpComment}"/></li>
+                                <li id="summary-date"></li>
+                                <li id="summary-time"></li>
+                                <li id="summary-comment"></li>
                             </ul>
                         </div>
                     </div>

@@ -1,6 +1,7 @@
 package pl.coderslab.charity.controller;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -44,15 +45,16 @@ public class DonationController {
             return "/form";
         }
         donationService.saveDonation(donation);
-redirectAttributes.addFlashAttribute("message", "Dziękujemy za przesłanie formularza Na maila prześlemy wszelkie\n" +
-        "            informacje o odbiorze.");
-        return "redirect:/";
+        redirectAttributes.addFlashAttribute("message", "Dziękujemy za przesłanie formularza Na maila prześlemy " +
+                "wszelkie informacje o odbiorze.");
+        return "redirect:/confirmation";
     }
 
     @RequestMapping("/confirmation")
     public String confirm() {
-
         return "/confirmation";
     }
+
+
 
 }
