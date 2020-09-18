@@ -89,7 +89,7 @@
                 <c:forEach items="${institutions}" var="institution">
                     <div class="form-group form-group--checkbox">
                         <label>
-                            <input type="radio" name="institution" id="institution" value="${institution.id}"/>
+                            <input type="radio" name="institution" value="${institution.id}"/>
                             <span class="checkbox radio"></span>
                             <span class="description">
                                 <div class="title" id="institution-name"><c:out value="${institution.name}"/></div>
@@ -113,16 +113,16 @@
                     <div class="form-section--column">
                         <h4>Adres odbioru</h4>
                         <div class="form-group form-group--inline">
-                            <label> Ulica <form:input path="street" type="text" name="street"/></label>
+                            <label> Ulica <form:input path="street" type="text" id="street"/></label>
                         </div>
 
                         <div class="form-group form-group--inline">
-                            <label> Miasto <form:input path="city" type="text" name="city"/></label>
+                            <label> Miasto <form:input path="city" type="text" id="city"/></label>
                         </div>
 
                         <div class="form-group form-group--inline">
                             <label>
-                                Kod pocztowy <form:input path="zipCode" type="text" name="zipCode" maxlength="6"/>
+                                Kod pocztowy <form:input path="zipCode" type="text" id="zipCode" maxlength="6"/>
                             </label>
                         </div>
 

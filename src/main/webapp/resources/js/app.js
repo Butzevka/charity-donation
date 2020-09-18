@@ -164,11 +164,24 @@ document.addEventListener("DOMContentLoaded", function() {
       this.$step.parentElement.hidden = this.currentStep >= 5;
 
       // TODO: get data from inputs and show them in summary
+      function getRadioVal(form, name) {
+        let val;
+
+        let radios = form.elements[name];
+
+        for (let i=0, len=radios.length; i<len; i++) {
+          if ( radios[i].checked ) {
+            val = radios[i].value;
+            break;
+          }
+        }
+        return val;
+      }
       document.getElementById('summary-quantity').innerHTML = document.getElementById('quantity').value + ' worków 60L.';
-      document.getElementById('summary-institution').innerHTML = 'Dla organizacji ' + document.getElementById('institution-name').innerHTML;
+      document.getElementById('summary-institution').innerHTML = 'Dla organizacji ' + getRadioVal(document.getElementById('donation'), 'institution');
       document.getElementById('summary-address').innerHTML = document.getElementById('street').value;
       document.getElementById('summary-city').innerHTML = document.getElementById('city').value;
-      document.getElementById('summary-zipcode').innerHTML = document.getElementById('zipcode').value;
+      document.getElementById('summary-zipcode').innerHTML = document.getElementById('zipCode').value;
       document.getElementById('summary-date').innerHTML = document.getElementById('pickUpDate').value;
       document.getElementById('summary-time').innerHTML = document.getElementById('pickUpTime').value;
       document.getElementById('summary-comment').innerHTML = document.getElementById('pickUpComment').value;

@@ -10,5 +10,4 @@ public interface DonationService {
     List<Donation> getAll();
     void saveDonation(Donation donation);
 
-
 }
